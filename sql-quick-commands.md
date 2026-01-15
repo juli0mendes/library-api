@@ -17,6 +17,11 @@ create table autor(
 select * from autor;
 ```
 
+### Deletar tabela Autor
+```sql
+drop table autor;
+```
+
 ## Tabela Livro
 
 ### Criar tabela Livro
@@ -36,4 +41,9 @@ create table livro(
 ### Selecionar todos os livros
 ```sql
 select * from livro;
+```
+
+### Deletar tabela Livro
+```sql
+drop table livro;
 ```
