@@ -1,10 +1,17 @@
 package io.github.juli0mendes.library.model;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor
 public enum BookGender {
-    FICCAO,
-    FANTASIA,
-    MISTERIO,
-    ROMANCE,
-    BIOGRAFIA,
-    CIENCIA
+    FICCION("FICCAO"),
+    FANTASY("FANTASIA"),
+    MISTERY("MISTÉRIO"),
+    ROMANCE("ROMANCE"),
+    BIOGRAPHY("BIOGRAFIA"),
+    SCIENCE("CIÊNCIA");
+
+    private final String descriptionPt;
 }
