@@ -13,6 +13,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -41,7 +42,7 @@ public class Book {
     private BookGender genre;
 
     @Column(name = "preco", precision = 18, scale = 2)
-    private Double price;
+    private BigDecimal price;
 
     @ManyToOne
     @JoinColumn(name = "id_autor")
