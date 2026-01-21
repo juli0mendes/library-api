@@ -1,9 +1,8 @@
 package io.github.juli0mendes.library.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -37,9 +36,9 @@ public class Book {
     @Column(name = "data_publicacao", nullable = false)
     private LocalDate publicationDate;
 
-    @Enumerated(EnumType.STRING)
+    @Convert(converter = BookGenderConverter.class)
     @Column(name = "genero", nullable = false, length = 30)
-    private BookGender genre;
+    private BookGender gender;
 
     @Column(name = "preco", precision = 18, scale = 2)
     private BigDecimal price;
