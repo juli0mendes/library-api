@@ -26,7 +26,7 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "name", nullable = false, length = 100)
+    @Column(name = "nome", nullable = false, length = 100)
     private String name;
 
     @Column(name = "data_nascimento", nullable = false)

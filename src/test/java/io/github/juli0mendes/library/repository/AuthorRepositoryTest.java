@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 @SpringBootTest
-public class AuthorRepositoryTest {
+class AuthorRepositoryTest {
 
     @Autowired
     private AuthorRepository authorRepository;
