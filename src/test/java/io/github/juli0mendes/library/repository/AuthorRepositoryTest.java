@@ -46,4 +46,44 @@ public class AuthorRepositoryTest {
             this.authorRepository.save(authorData);
         }
     }
+
+    @Test
+    public void testFindAllAuthors() {
+        var authors = this.authorRepository.findAll();
+        authors.forEach(author -> System.out.println("Author: " + author));
+    }
+
+    @Test
+    public void testCountAuthors() {
+        long count = this.authorRepository.count();
+        System.out.println("Total authors: " + count);
+    }
+
+    @Test
+    public void testDeleteByIdAuthor() {
+        var author = new Author();
+        author.setName("To Delete");
+        author.setNationality("Nowhere");
+        author.setBirthDate(LocalDate.of(2000, 1, 1));
+
+        var savedAuthor = this.authorRepository.save(author);
+        System.out.println("Author saved with ID: " + savedAuthor.getId());
+
+        this.authorRepository.deleteById(savedAuthor.getId());
+        System.out.println("Author deleted with ID: " + savedAuthor.getId());
+    }
+
+    @Test
+    public void testDeleteAuthor() {
+        var author = new Author();
+        author.setName("To Delete Directly");
+        author.setNationality("Nowhere");
+        author.setBirthDate(LocalDate.of(2001, 2, 2));
+
+        var savedAuthor = this.authorRepository.save(author);
+        System.out.println("Author saved with ID: " + savedAuthor.getId());
+
+        this.authorRepository.delete(savedAuthor);
+        System.out.println("Author deleted with ID: " + savedAuthor.getId());
+    }
 }
