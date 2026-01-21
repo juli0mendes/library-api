@@ -55,8 +55,7 @@ jobs:
 
   release:
     name: Automated Release
-#    needs: [build, unit-tests]
-    needs: [build]
+    needs: [build, unit-tests]
     runs-on: ubuntu-latest
     if: >
       github.event_name == 'push' ||
