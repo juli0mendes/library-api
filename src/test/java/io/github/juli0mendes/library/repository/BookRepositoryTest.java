@@ -42,7 +42,7 @@ class BookRepositoryTest {
     public void testSaveBookWithCascadeStrategy() {
 
         var book = new Book();
-        book.setIsbn("978-0547928227");
+        book.setIsbn("978-0547928228");
         book.setPrice(BigDecimal.valueOf(100));
         book.setGender(BookGender.FICCION);
         book.setTitle("The Hobbit");
@@ -57,5 +57,23 @@ class BookRepositoryTest {
 
         this.bookRepository.save(book);
 
+    }
+
+    @Test
+    public void testSaveAuthorAndBookWithoutCascadeStrategy() {
+
+        var book = new Book();
+        book.setIsbn("978-0547928227");
+        book.setPrice(BigDecimal.valueOf(100));
+        book.setGender(BookGender.FICCION);
+        book.setTitle("The Hobbit");
+        book.setPublicationDate(LocalDate.of(1980, 1, 1));
+
+        var author = this.authorRepository.findById(UUID.fromString("b48e0297-0436-4b68-960c-edc181b79b77"))
+                .orElse(null);
+
+        book.setAuthor(author);
+
+        this.bookRepository.save(book);
     }
 }
