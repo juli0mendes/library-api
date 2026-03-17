@@ -1,6 +1,5 @@
 package io.github.juli0mendes.library.model;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
@@ -44,7 +43,7 @@ public class Book {
     @Column(name = "preco", precision = 18, scale = 2)
     private BigDecimal price;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "id_autor")
     private Author author;
 }
