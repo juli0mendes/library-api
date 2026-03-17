@@ -5,7 +5,6 @@ import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
 
@@ -23,17 +22,6 @@ public class DatabaseConfiguration {
 
     @Value("${spring.datasource.driver-class-name}")
     private String driverClassName;
-
-//    @Bean
-//    public DataSource dataSource() {
-//        var dataSource = new DriverManagerDataSource();
-//        dataSource.setUrl(this.url);
-//        dataSource.setUsername(this.username);
-//        dataSource.setPassword(this.password);
-//        dataSource.setDriverClassName(this.driverClassName);
-//
-//        return dataSource;
-//    }
 
     @Bean
     public DataSource hikariDataSource() {
